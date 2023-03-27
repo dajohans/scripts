@@ -2,9 +2,10 @@
 
 sudo apt install --yes git 
 
+sudo rm -rf /opt/emacs29
+
 sudo git clone --depth 1 --branch emacs-29 https://github.com/emacs-mirror/emacs /opt/emacs29
 
-sudo mkdir -p /opt/emacs29
 cd /opt/emacs29/
 
 # Since gcc is used below, also needed for building Emacs
