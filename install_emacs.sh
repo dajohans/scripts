@@ -51,8 +51,8 @@ sudo ./configure \
 --with-mailutils && \
 sudo make -j16 && \
 sudo make install
-# I don't use mailutils but ./configure complains unless --with-mailutils
-# --with-tree-sitter and --with-json appear not to be necessary.
-# They are on by default, but I include them just to be on the safe side.
-
+# I don't use mailutils but ./configure complains unless
+# --with-mailutils is used.  Also, --with-tree-sitter and --with-json
+# appear not to be necessary since they are on by default, but I
+# include them just to be on the safe side.
 
