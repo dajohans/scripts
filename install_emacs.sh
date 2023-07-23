@@ -28,7 +28,9 @@ sudo apt install --yes \
  	libgnutls28-dev \
  	libgif-dev \
  	libxpm-dev \
-	libncurses-dev
+	libncurses-dev \
+	librsvg2-dev \
+	libsqlite3-dev
 # Installing libgtk-3-dev results in installing several other Emacs dependencis.
 # A probably nonexhaustive list:
 #	libcairo2-dev
@@ -44,6 +46,8 @@ sudo ./configure \
 --with-native-compilation \
 --with-tree-sitter \
 --with-json \
+--with-rsvg \
+--with-sqlite3 \
 --with-mailutils && \
 sudo make -j16 && \
 sudo make install
