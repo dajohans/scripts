@@ -60,12 +60,15 @@ sudo apt install --yes neovim
 llvm_install
 sudo apt install --yes google-chrome-stable
 texlive_minimal_install
+rust_install
+avr_install
+# texlive_install
+# texlab_install
+# jdtls_install
+# rust_analyzer_install
 
 # Some nice to have programs
 sudo apt install --yes binutils git make gcc g++ bear python3 python3-pip
-
-rust_install
-avr_install
 
 git config --global user.name "David Johansson"
 git config --global user.email "davidjohansson1994@gmail.com"
