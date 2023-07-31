@@ -23,6 +23,32 @@ file_contains_string () {
 	echo false
 }
 
+texlab_install () {
+	if [[ $(command_exists texlab) = false ]]
+	then
+		url="https://github.com/latex-lsp/texlab/releases/latest/download/texlab-x86_64-linux.tar.gz"
+		wget -O ~/manual-installs/texlab.tar.gz $url
+		mkdir -p ~/manual-installs/texlab
+		tar -xf ~/manual-installs/texlab.tar.gz -C ~/manual-installs/texlab
+		rm ~/manual-installs/texlab.tar.gz
+	fi
+}
+
+texlive_install () {
+	sudo apt install --yes texlive-full \
+		rubber \
+		latexmk
+}
+
+texlive_minimal_install () {
+	sudo apt install --yes texlive-latex-extra \
+		texlive-bibtex-extra \
+		texlive-fonts-extra \
+		texlive-lang-european \
+		rubber \
+		latexmk
+}
+
 jdtls_install () {
 	if [[ $(command_exists jdtls) = false ]]
 	then

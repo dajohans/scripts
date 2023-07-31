@@ -59,6 +59,7 @@ gcc_latest_install
 sudo apt install --yes neovim
 llvm_install
 sudo apt install --yes google-chrome-stable
+texlive_minimal_install
 
 # Some nice to have programs
 sudo apt install --yes binutils git make gcc g++ bear python3 python3-pip
@@ -104,6 +105,11 @@ fi
 
 if [[ $(file_exists "$HOME/.environment_variables") = false ]]
 then
+	echo "if [[ -d \"\$HOME/manual-installs/texlab\" ]]" >> $HOME/.environment_variables
+	echo "then" >> $HOME/.environment_variables
+	echo "	export PATH=\"\$PATH:\$HOME/manual-installs/texlab\"" >> $HOME/.environment_variables
+	echo "fi" >> $HOME/.environment_variables
+	echo "" >> $HOME/.environment_variables
 	echo "if [[ -d \"\$HOME/manual-installs/eclipse-jdtls/bin\" ]]" >> $HOME/.environment_variables
 	echo "then" >> $HOME/.environment_variables
 	echo "	export PATH=\"\$PATH:\$HOME/manual-installs/eclipse-jdtls/bin\"" >> $HOME/.environment_variables
