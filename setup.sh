@@ -11,8 +11,14 @@ source "$current_dir/utils.sh"
 pre_setup_string="# My personal setup:"
 post_setup_string="# My personal setup end"
 
-# Apparently, /usr/local/bin is not created by ubuntu.
-# But it might be nice to have this local bin directory for programs not handled by any package manager.
+# Apparently, $HOME/bin is not created by ubuntu.  But it might be
+# nice to have this local bin directory for programs not handled by
+# any package manager.
+if [[ $(dir_exists "$HOME/bin") = false ]]
+then
+	mkdir -p $HOME/bin
+fi
+
 if [[ $(dir_exists "/usr/local/bin") = false ]]
 then
 	sudo mkdir -p /usr/local/bin
