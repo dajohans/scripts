@@ -23,6 +23,14 @@ file_contains_string () {
 	echo false
 }
 
+rust_install () {
+	curl --proto '=https' --tlsv1.3 https://sh.rustup.rs -sSf | bash -s -- -y
+}
+
+rust_analyzer_install () {
+	rustup component add rust-analyzer
+}
+
 avr_install () {
 	# Programs for Arduino programming, or avr programming in general.
 	# screen is for viewing serial port output continuously

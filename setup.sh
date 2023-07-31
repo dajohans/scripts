@@ -54,6 +54,7 @@ sudo apt install --yes google-chrome-stable
 # Some nice to have programs
 sudo apt install --yes binutils git make gcc g++ bear python3 python3-pip
 
+rust_install
 avr_install
 
 git config --global user.name "David Johansson"
