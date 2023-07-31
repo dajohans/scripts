@@ -19,6 +19,9 @@ then
 	mkdir -p $HOME/bin
 fi
 
+# Apparently, /usr/local/bin is not created by ubuntu.  But it might
+# be nice to have this local bin directory for programs not handled by
+# any package manager.
 if [[ $(dir_exists "/usr/local/bin") = false ]]
 then
 	sudo mkdir -p /usr/local/bin
