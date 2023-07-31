@@ -119,7 +119,6 @@ fi
 if [[ $(file_exists "$HOME/.local/bin/theme.sh") = false ]]
 then
 	cp theme.sh $HOME/.local/bin/theme.sh
-	chmod +x $HOME/.local/bin/theme.sh
 fi
 
 if [[ $(file_exists "$HOME/.bashrc_customization") = false ]]
