@@ -129,19 +129,19 @@ then
 	cp .bashrc_customization $HOME/.bashrc_customization
 fi
 
-if [[ $(dir_exists "/tmp/scripts") = false ]]
-then
-	git clone https://github.com/dajohans/scripts.git /tmp/scripts
-fi
-
 if [[ $(command_exists emacs) = false ]]
 then
-	/tmp/scripts/install_emacs.sh
+	./install_emacs.sh
 fi
 
 if [[ $(command_exists vim) = false ]]
 then
-	/tmp/scripts/install_vim.sh
+	./install_vim.sh
+fi
+
+if [[ $(command_exists sioyek) = false ]]
+then
+	./install_sioyek.sh
 fi
 
 echo ""
