@@ -1,0 +1,9 @@
+# Unicode characters can be found at:
+# https://www.ssec.wisc.edu/~tomw/java/unicode.html
+# The numbers in the rightmost column are used with bash's \u notation.
+upper_bend=$'\u256D'
+lower_bend=$'\u2570'
+middle_bar=$'\u2574'
+PS1=$'$upper_bend$middle_bar${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\n$lower_bend$middle_bar\$ '
+
+theme.sh gruvbox-dark-soft

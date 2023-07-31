@@ -1,0 +1,20 @@
+if [[ -d "$HOME/manual-installs/eclipse-jdtls/bin" ]]
+then
+	export PATH="$PATH:$HOME/manual-installs/eclipse-jdtls/bin"
+fi
+
+if [[ -d "/opt/gradle/gradle-7.6/bin" ]]
+then
+	export tPATH="$PATH:/opt/gradle/gradle-7.6/bin"
+fi
+
+if [[ -d "/usr/lib/jvm/java-19-openjdk-amd64" ]]
+then
+	export tJAVA_HOME="/usr/lib/jvm/java-19-openjdk-amd64"
+fi
+
+if [[ -d "$HOME/gems" ]]
+then
+	export GEM_HOME="$HOME/gems"
+	export PATH="$PATH:$HOME/gems/bin"
+fi
