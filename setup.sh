@@ -98,17 +98,23 @@ if [[ $(file_exists "$HOME/.environment_variables") = false ]]
 then
 	echo "if [[ -d \"\$HOME/manual-installs/eclipse-jdtls/bin\" ]]" >> $HOME/.environment_variables
 	echo "then" >> $HOME/.environment_variables
-	echo "	PATH=\"\$PATH:\$HOME/manual-installs/eclipse-jdtls/bin\"" >> $HOME/.environment_variables
+	echo "	export PATH=\"\$PATH:\$HOME/manual-installs/eclipse-jdtls/bin\"" >> $HOME/.environment_variables
 	echo "fi" >> $HOME/.environment_variables
 	echo "" >> $HOME/.environment_variables
 	echo "if [[ -d \"/opt/gradle/gradle-7.6/bin\" ]]" >> $HOME/.environment_variables
 	echo "then" >> $HOME/.environment_variables
-	echo "	PATH=\"\$PATH:/opt/gradle/gradle-7.6/bin\"" >> $HOME/.environment_variables
+	echo "	export PATH=\"\$PATH:/opt/gradle/gradle-7.6/bin\"" >> $HOME/.environment_variables
 	echo "fi" >> $HOME/.environment_variables
 	echo "" >> $HOME/.environment_variables
 	echo "if [[ -d \"/usr/lib/jvm/java-19-openjdk-amd64\" ]]" >> $HOME/.environment_variables
 	echo "then" >> $HOME/.environment_variables
-	echo "	JAVA_HOME=\"/usr/lib/jvm/java-19-openjdk-amd64\"" >> $HOME/.environment_variables
+	echo "	export JAVA_HOME=\"/usr/lib/jvm/java-19-openjdk-amd64\"" >> $HOME/.environment_variables
+	echo "fi" >> $HOME/.environment_variables
+	echo "" >> $HOME/.environment_variables
+	echo "if [[ -d \"\$HOME/gems\" ]]" >> $HOME/.environment_variables
+	echo "then" >> $HOME/.environment_variables
+	echo "	export GEM_HOME=\"\$HOME/gems\"" >> $HOME/.environment_variables
+	echo "	export PATH=\"\$HOME/gems/bin\"" >> $HOME/.environment_variables
 	echo "fi" >> $HOME/.environment_variables
 fi
 
