@@ -46,17 +46,15 @@ google_chrome_setup
 
 sudo apt update
 
+gcc_latest_install
+sudo apt install --yes neovim
+llvm_install
+sudo apt install --yes google-chrome-stable
+
 # Some nice to have programs
 sudo apt install --yes binutils git make gcc g++ bear python3 python3-pip
 
-# Programs for Arduino programming, or avr programming in general
-# screen is for viewing serial port output continuously
-sudo apt install --yes binutils-avr gcc-avr avr-libc gdb-avr avrdude screen
-
-sudo apt install --yes gcc-12 g++-12
-sudo apt install --yes neovim
-sudo apt install --yes clang-16 clangd-16
-sudo apt install --yes google-chrome-stable
+avr_install
 
 git config --global user.name "David Johansson"
 git config --global user.email "davidjohansson1994@gmail.com"

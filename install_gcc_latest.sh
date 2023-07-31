@@ -5,5 +5,4 @@ source "$current_dir/utils.sh"
 
 $(gcc_toolchain_setup)
 sudo apt update
-sudo apt install --yes gcc-12 g++-12
-
+gcc_latest_install

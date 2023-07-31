@@ -23,6 +23,12 @@ file_contains_string () {
 	echo false
 }
 
+avr_install () {
+	# Programs for Arduino programming, or avr programming in general.
+	# screen is for viewing serial port output continuously
+	sudo apt install --yes binutils-avr gcc-avr avr-libc gdb-avr avrdude screen
+}
+
 gcc_toolchain_setup () {
 	codename=$(ubuntu_codename)
 	gcc_toolchain_key_path="/etc/apt/keyrings/ubuntu-toolchain-r-ppa-$codename.gpg"
@@ -30,6 +36,18 @@ gcc_toolchain_setup () {
 	then
 		sudo add-apt-repository --yes ppa:ubuntu-toolchain-r/ppa
 	fi
+}
+
+gcc_latest_install () {
+	# Grep for lines beginning in gcc and ending in a at least two
+	# digits. We want there to be two digits, because otherwise the
+	# sorting might get strange, since it seems to prioritize sorting word
+	# length over the numeric value at the end of the word. Then use awk
+	# to pick the first word, which is the package name. Then sort the
+	# list and pick the last element.
+	gcc=$(apt-cache search gcc | grep '^gcc-[0-9][0-9][[:space:]]' | awk '{print $1;}' | sort | tail -1)
+	gplusplus=$(apt-cache search g++ | grep '^g++-[0-9][0-9][[:space:]]' | awk '{print $1;}' | sort | tail -1)
+	sudo apt install --yes $gcc $gplusplus
 }
 
 neovim_setup () {
@@ -57,6 +75,19 @@ llvm_setup () {
 		sudo add-apt-repository --yes "deb [arch=amd64] http://apt.llvm.org/$codename/ llvm-toolchain-$codename main"
 		# sudo add-apt-repository --yes "deb-src [arch=amd64] http://apt.llvm.org/$codename/ llvm-toolchain-$codename main"
 	fi
+}
+
+llvm_install () {
+	# Grep for lines beginning in clang- and ending in a at least two
+	# digits. We want there to be two digits, because otherwise the
+	# sorting might get strange, since it seems to prioritize sorting word
+	# length over the numeric value at the end of the word. Then use awk
+	# to pick the first word, which is the package name. Then sort the
+	# list and pick the second to last element, which should be the last
+	# package from a non-development branch.
+	clang=$(apt-cache search clang | grep '^clang-[0-9][0-9][[:space:]]' | awk '{print $1;}' | sort | tail -2 | head -1)
+	clangd=$(apt-cache search clangd | grep '^clangd-[0-9][0-9][[:space:]]' | awk '{print $1;}' | sort | tail -2 | head -1)
+	sudo apt install --yes $clang $clangd
 }
 
 google_chrome_setup () {
