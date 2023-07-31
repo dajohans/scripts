@@ -39,6 +39,9 @@ then
 	echo "program. Therefore, these directories should be kept even after installation." >> $HOME/manual-installs/NOTES.txt
 fi
 
+gcc_toolchain_setup
+neovim_setup
+llvm_setup
 google_chrome_setup
 
 sudo apt update
@@ -50,6 +53,9 @@ sudo apt install --yes binutils git make gcc g++ bear python3 python3-pip
 # screen is for viewing serial port output continuously
 sudo apt install --yes binutils-avr gcc-avr avr-libc gdb-avr avrdude screen
 
+sudo apt install --yes gcc-12 g++-12
+sudo apt install --yes neovim
+sudo apt install --yes clang-16 clangd-16
 sudo apt install --yes google-chrome-stable
 
 git config --global user.name "David Johansson"
@@ -127,10 +133,10 @@ then
 	/tmp/scripts/install_emacs.sh
 fi
 
-#if [[ $(command_exists vim) = false ]]
-#then
-#	/tmp/scripts/install_vim.sh
-#fi
+if [[ $(command_exists vim) = false ]]
+then
+	/tmp/scripts/install_vim.sh
+fi
 
 echo ""
 echo ""
