@@ -23,6 +23,17 @@ file_contains_string () {
 	echo false
 }
 
+jdtls_install () {
+	if [[ $(command_exists jdtls) = false ]]
+	then
+		url="http://download.eclipse.org/jdtls/snapshots/jdt-language-server-latest.tar.gz"
+		wget -O ~/manual-installs/eclipse-jdtls.tar.gz $url;
+		mkdir -p ~/manual-installs/eclipse-jdtls;
+		tar -xf ~/manual-installs/eclipse-jdtls.tar.gz -C ~/manual-installs/eclipse-jdtls;
+		rm ~/manual-installs/eclipse-jdtls.tar.gz
+	fi
+}
+
 rust_install () {
 	curl --proto '=https' --tlsv1.3 https://sh.rustup.rs -sSf | bash -s -- -y
 }
