@@ -35,11 +35,17 @@ jdtls_install () {
 }
 
 rust_install () {
-	curl --proto '=https' --tlsv1.3 https://sh.rustup.rs -sSf | bash -s -- -y
+	if [[ $(command_exists rustup) = false ]]
+	then
+		curl --proto '=https' --tlsv1.3 https://sh.rustup.rs -sSf | bash -s -- -y
+	fi
 }
 
 rust_analyzer_install () {
-	rustup component add rust-analyzer
+	if [[ $(command_exists rust-analyzer) = false ]]
+	then
+		rustup component add rust-analyzer
+	fi
 }
 
 avr_install () {
