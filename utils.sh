@@ -69,7 +69,19 @@ rust_install () {
 }
 
 rust_analyzer_install () {
-	if [[ $(command_exists rust-analyzer) = false ]]
+	# Rustup appears to install the programs inside
+	#     ~/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/bin/
+	# but doesn't add this to PATH. Then it seems like it creates
+	# wrappers of the binaries in the above directory and put them
+	# inside
+	#     ~/.cargo/bin/
+	# and these wrappers are added to PATH. The strange thing is that
+	# it creates wrappers for all components, even the ones that are
+	# not installed. So there exists a binary rust-analyzer even if it
+	# is not installed. Therefore, the below code checks for
+	# rust-analyzer inside the directory where rustup appears to
+	# install the actual binary of rust-analyzer.
+	if [[ $(command_exists ~/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/bin/rust-analyzer) = false ]]
 	then
 		rustup component add rust-analyzer
 	fi
