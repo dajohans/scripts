@@ -30,7 +30,9 @@ sudo apt install --yes \
  	libxpm-dev \
 	libncurses-dev \
 	librsvg2-dev \
-	libsqlite3-dev
+	libsqlite3-dev \
+	imagemagick \
+	libmagickwand-dev
 # Installing libgtk-3-dev results in installing several other Emacs dependencis.
 # A probably nonexhaustive list:
 #	libcairo2-dev
@@ -48,6 +50,7 @@ sudo ./configure \
 --with-json \
 --with-rsvg \
 --with-sqlite3 \
+--with-imagemagick \
 --with-mailutils && \
 sudo make -j16 && \
 sudo make install
