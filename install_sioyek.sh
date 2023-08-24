@@ -34,7 +34,7 @@ sudo git clone --recursive https://github.com/ahrm/sioyek.git \
 
 cd /opt/sioyek
 sudo ./build_linux.sh
-ln -s /opt/sioyek/build/sioyek /usr/local/bin/sioyek
+sudo ln -s /opt/sioyek/build/sioyek /usr/local/bin/sioyek
 
 # create main menu entry, based on the default xreader entry
 sudo cp /usr/share/applications/xreader.desktop \
