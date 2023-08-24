@@ -45,6 +45,7 @@ sudo ./configure \
 	--with-lua-prefix=/usr/include/lua5.2 \
 	--enable-gui=gtk2 \
 	--enable-cscope \
+	--enable-autoservername \
 	--prefix=/usr/local
 
 sudo make -j16 VIMRUNTIMEDIR=/usr/local/share/vim/vim90
