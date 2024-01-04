@@ -3,6 +3,10 @@
 # This script is based on:
 # https://github.com/ycm-core/YouCompleteMe/wiki/Building-Vim-from-source
 
+current_dir=$(dirname $0)
+source "$current_dir/utils.sh"
+num_compile_threads=$(($(num_cpu_cores)+1))
+
 sudo apt install --yes git 
 
 sudo apt install --yes \
@@ -48,6 +52,6 @@ sudo ./configure \
 	--enable-autoservername \
 	--prefix=/usr/local
 
-sudo make -j16 VIMRUNTIMEDIR=/usr/local/share/vim/vim90
+sudo make -j$(num_compile_threads) VIMRUNTIMEDIR=/usr/local/share/vim/vim90
 sudo make install
 
