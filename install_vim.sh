@@ -36,7 +36,6 @@ sudo ln -s /usr/lib/x86_64-linux-gnu/liblua5.2.so /usr/local/lib/liblua.so
 sudo rm -rf /opt/vim
 sudo rm -rf /usr/local/share/vim/vim91
 
-# sudo git clone --depth 1 https://github.com/vim/vim /opt/vim
 sudo git clone https://github.com/vim/vim /opt/vim
 
 cd /opt/vim
