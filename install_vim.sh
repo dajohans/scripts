@@ -35,9 +35,13 @@ sudo ln -s /usr/lib/x86_64-linux-gnu/liblua5.2.so /usr/local/lib/liblua.so
 # sudo apt remove --yes vim-common vim-tiny vim vim-runtime gvim vim-nox
 sudo rm -rf /opt/vim
 
-sudo git clone --depth 1 https://github.com/vim/vim /opt/vim
+# sudo git clone --depth 1 https://github.com/vim/vim /opt/vim
+sudo git clone https://github.com/vim/vim /opt/vim
 
 cd /opt/vim
+# Reset to the commit for the 9.1 release:
+#     https://github.com/vim/vim/commit/b4ddc6c11e95cef4b372e239871fae1c8d4f72b6
+git reset --hard b4ddc6c11e95cef4b372e239871fae1c8d4f72b6
 sudo ./configure \
 	--with-features=huge \
 	--enable-multibyte \
@@ -52,6 +56,6 @@ sudo ./configure \
 	--enable-autoservername \
 	--prefix=/usr/local
 
-sudo make -j$(num_compile_threads) VIMRUNTIMEDIR=/usr/local/share/vim/vim90
+sudo make -j$(num_compile_threads) VIMRUNTIMEDIR=/usr/local/share/vim/vim91
 sudo make install
 
