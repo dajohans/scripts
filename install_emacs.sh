@@ -1,5 +1,9 @@
 #!/bin/bash
 
+current_dir=$(dirname $0)
+source "$current_dir/utils.sh"
+num_compile_threads=$(($(num_cpu_cores)+1))
+
 sudo apt install --yes git 
 
 sudo rm -rf /opt/emacs29
@@ -52,7 +56,7 @@ sudo ./configure \
 --with-sqlite3 \
 --with-imagemagick \
 --with-mailutils && \
-sudo make -j16 && \
+sudo make -j$(num_compile_threads) && \
 sudo make install
 # I don't use mailutils but ./configure complains unless
 # --with-mailutils is used.  Also, --with-tree-sitter and --with-json
