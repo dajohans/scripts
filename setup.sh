@@ -153,6 +153,10 @@ fi
 
 if [[ $(command_exists vim) = false ]]
 then
+	# Default vim on Linux Mint appear to be vim-common & vim-tiny
+	# sudo apt remove --yes vim-common vim-tiny vim vim-runtime vim-nox
+	# Perhaps better to just remove anything Vim related
+	sudo apt remove --yes vim*
 	./install_vim.sh
 fi
 
