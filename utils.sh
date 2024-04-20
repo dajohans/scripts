@@ -172,7 +172,9 @@ google_chrome_setup () {
 	if [[ $(file_exists $chrome_key_path) = false ]]
 	then
 		wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo gpg --dearmor -o $chrome_key_path
-		# Digital Ocean doens't suggest adding [arch=amd64]. But if you don't then you get a warning about missing i386 packages.
+		# Digital Ocean doens't suggest adding [arch=amd64]. But if
+		# you don't then you get a warning about missing i386
+		# packages.
 		sudo add-apt-repository --yes "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main"
 	fi
 }
