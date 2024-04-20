@@ -6,11 +6,12 @@ num_compile_threads=$(($(num_cpu_cores)+1))
 
 sudo apt install --yes git 
 
-sudo rm -rf /opt/emacs29
+sudo rm -rf /opt/emacs
 
-sudo git clone --depth 1 --branch emacs-29 https://github.com/emacs-mirror/emacs /opt/emacs29
+# sudo git clone --depth 1 --branch emacs-29 https://github.com/emacs-mirror/emacs /opt/emacs
+sudo git clone --depth 1 https://github.com/emacs-mirror/emacs /opt/emacs
 
-cd /opt/emacs29/
+cd /opt/emacs/
 
 # Since gcc is used below, also needed for building Emacs
 sudo apt install --yes build-essential
