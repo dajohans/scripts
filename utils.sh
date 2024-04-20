@@ -93,12 +93,21 @@ avr_install () {
 	sudo apt install --yes binutils-avr gcc-avr avr-libc gdb-avr avrdude screen
 }
 
-gcc_toolchain_setup () {
+gcc_toolchain_r_ppa_setup () {
 	codename=$(ubuntu_codename)
 	gcc_toolchain_key_path="/etc/apt/keyrings/ubuntu-toolchain-r-ppa-$codename.gpg"
 	if [[ $(file_exists $gcc_toolchain_key_path) = false ]]
 	then
 		sudo add-apt-repository --yes ppa:ubuntu-toolchain-r/ppa
+	fi
+}
+
+gcc_toolchain_r_test_setup () {
+	codename=$(ubuntu_codename)
+	gcc_toolchain_key_path="/etc/apt/keyrings/ubuntu-toolchain-r-test-$codename.gpg"
+	if [[ $(file_exists $gcc_toolchain_key_path) = false ]]
+	then
+		sudo add-apt-repository --yes ppa:ubuntu-toolchain-r/test
 	fi
 }
 
