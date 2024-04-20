@@ -48,7 +48,7 @@ then
 	echo "program. Therefore, these directories should be kept even after installation." >> $HOME/manual-installs/NOTES.txt
 fi
 
-gcc_toolchain_setup
+gcc_toolchain_r_test_setup
 neovim_setup
 llvm_setup
 google_chrome_setup
