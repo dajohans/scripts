@@ -32,16 +32,19 @@ sudo cp -r /usr/include/lua5.2/*.h /usr/include/lua5.2/include/
 sudo ln -s /usr/lib/x86_64-linux-gnu/liblua5.2.so /usr/local/lib/liblua.so
 
 # Default vim on Linux Mint appear to be vim-common & vim-tiny
-# sudo apt remove --yes vim-common vim-tiny vim vim-runtime gvim vim-nox
+# sudo apt remove --yes vim-common vim-tiny vim vim-runtime vim-nox
+# Perhaps better to just remove anything Vim related
+sudo apt remove --yes vim*
 sudo rm -rf /opt/vim
-sudo rm -rf /usr/local/share/vim/vim91
+sudo rm -rf /usr/local/share/vim/vim
 
-sudo git clone https://github.com/vim/vim /opt/vim
+# sudo git clone https://github.com/vim/vim /opt/vim
+sudo git clone --depth 1 https://github.com/vim/vim /opt/vim
 
 cd /opt/vim
 # Reset to the commit for the 9.1 release:
 #     https://github.com/vim/vim/commit/b4ddc6c11e95cef4b372e239871fae1c8d4f72b6
-git reset --hard b4ddc6c11e95cef4b372e239871fae1c8d4f72b6
+# git reset --hard b4ddc6c11e95cef4b372e239871fae1c8d4f72b6
 sudo ./configure \
 	--with-features=huge \
 	--enable-multibyte \
@@ -56,6 +59,6 @@ sudo ./configure \
 	--enable-autoservername \
 	--prefix=/usr/local
 
-sudo make -j$(num_compile_threads) VIMRUNTIMEDIR=/usr/local/share/vim/vim91
+sudo make -j$(num_compile_threads) VIMRUNTIMEDIR=/usr/local/share/vim/vim
 sudo make install
 
