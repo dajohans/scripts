@@ -142,11 +142,12 @@ llvm_setup () {
 	llvm_key_path="/etc/apt/trusted.gpg.d/llvm_key.gpg"
 	if [[ $(file_exists $llvm_key_path) = false ]]
 	then
+		version=-17 # This is the current stable version
 		codename=$(ubuntu_codename)
 		# Source for llvm apt repo: https://apt.llvm.org/
 		wget -q -O - https://apt.llvm.org/llvm-snapshot.gpg.key | sudo gpg --dearmor -o $llvm_key_path
-		sudo add-apt-repository --yes "deb [arch=amd64] http://apt.llvm.org/$codename/ llvm-toolchain-$codename main"
-		# sudo add-apt-repository --yes "deb-src [arch=amd64] http://apt.llvm.org/$codename/ llvm-toolchain-$codename main"
+		sudo add-apt-repository --yes "deb [arch=amd64] http://apt.llvm.org/$codename/ llvm-toolchain-$codename$version main"
+		# sudo add-apt-repository --yes "deb-src [arch=amd64] http://apt.llvm.org/$codename/ llvm-toolchain-$codename$version main"
 	fi
 }
 
