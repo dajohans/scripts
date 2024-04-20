@@ -32,7 +32,7 @@ sudo cp -r /usr/include/lua5.2/*.h /usr/include/lua5.2/include/
 sudo ln -s /usr/lib/x86_64-linux-gnu/liblua5.2.so /usr/local/lib/liblua.so
 
 sudo rm -rf /opt/vim
-sudo rm -rf /usr/local/share/vim/vim
+# sudo rm -rf /usr/local/share/vim/vim91
 
 # sudo git clone https://github.com/vim/vim /opt/vim
 sudo git clone --depth 1 https://github.com/vim/vim /opt/vim
@@ -55,6 +55,13 @@ sudo ./configure \
 	--enable-autoservername \
 	--prefix=/usr/local
 
-sudo make -j$(num_compile_threads) VIMRUNTIMEDIR=/usr/local/share/vim/vim
+# sudo make -j$(num_compile_threads) VIMRUNTIMEDIR=/usr/local/share/vim/vim91
+# The YCM demo for compiling vim sets VIMRUNTIMEDIR like above. But
+# this appear to be the default location anyway, so it doesn't seem to
+# be necessary. The runtime files appear to be installed in the above
+# location even if we set a different VIMRUNTIMEDIR when installing,
+# so I'm not sure why we would set a different location than the
+# default.
+sudo make -j$(num_compile_threads)
 sudo make install
 
