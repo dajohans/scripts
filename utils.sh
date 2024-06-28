@@ -175,7 +175,11 @@ google_chrome_setup () {
 		# Digital Ocean doens't suggest adding [arch=amd64]. But if
 		# you don't then you get a warning about missing i386
 		# packages.
-		sudo add-apt-repository --yes "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main"
+		echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" | sudo tee --append /etc/apt/sources.list.d/google-chrome.list
+		# For some reason, add-apt-repository seems to add duplicate
+		# repository entries. So now we do it manually and ensure it's
+		# added only once.
+		# sudo add-apt-repository --yes "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main"
 	fi
 }
 
