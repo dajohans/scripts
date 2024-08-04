@@ -68,7 +68,7 @@ avr_install
 # rust_analyzer_install
 
 # Some nice to have programs
-sudo apt install --yes binutils git make gcc g++ bear python3 python3-pip
+sudo apt install --yes binutils git make cmake gcc g++ bear python3 python3-pip python-is-python3
 
 git config --global user.name "David Johansson"
 git config --global user.email "davidjohansson1994@gmail.com"
