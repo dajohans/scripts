@@ -233,11 +233,6 @@ dir_exists () {
 }
 
 num_cpu_cores () {
-	# There are several lines beginning in CPU but only one beginning
-	# in CPU(, so look for this. Inside the parenthesis CPU(...) is
-	# something that depends on the language of the system. In Swedish
-	# it says CPU(er) but in English CPU(s). So by only matching for
-	# CPU( and not CPU(er) it should be language agnostic
-	num_cores=$(lscpu | grep ^CPU\( | awk '{print $NF;}')
+	num_cores=$(cat /proc/cpuinfo | grep ^processor | awk '{print $NF}' | tail -n1)+1
 	echo $num_cores
 }
