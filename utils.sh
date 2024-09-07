@@ -122,15 +122,6 @@ gcc_latest_install () {
 	sudo apt install --yes $gcc $gplusplus
 }
 
-neovim_setup () {
-	codename=$(ubuntu_codename)
-	neovim_key_path="/etc/apt/keyrings/neovim-ppa-unstable-$codename.gpg"
-	if [[ $(file_exists $neovim_key_path) = false ]]
-	then
-		sudo add-apt-repository --yes ppa:neovim-ppa/unstable
-	fi
-}
-
 llvm_setup () {
     # There are 3 ppa's available: one unnumbered and two numbered.
     # The unnumbered appear to be for devel and then the two numbered
