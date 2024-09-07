@@ -44,14 +44,6 @@ jdtls_install () {
 	fi
 }
 
-rust_install () {
-	if [[ $(command_exists rustup) = false ]]
-	then
-		curl --proto '=https' --tlsv1.3 https://sh.rustup.rs -sSf | bash -s -- -y
-		source $HOME/.cargo/env
-	fi
-}
-
 rust_analyzer_install () {
 	# Rustup appears to install the programs inside
 	#     ~/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/bin/

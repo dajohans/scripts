@@ -63,7 +63,6 @@ source "$current_dir/install_texlive_minimal.sh"
 
 sudo apt update
 
-rust_install
 avr_install
 # texlab_install
 # jdtls_install
