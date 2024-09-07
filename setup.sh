@@ -50,15 +50,14 @@ fi
 
 source "$current_dir/gnome_terminal_settings.sh"
 source "$current_dir/desktop_font_settings.sh"
+source "$current_dir/install_llvm_tools.sh"
 
 gcc_toolchain_r_test_setup
-llvm_setup
 google_chrome_setup
 
 sudo apt update
 
 gcc_latest_install
-llvm_install
 sudo apt install --yes google-chrome-stable
 texlive_minimal_install
 rust_install
