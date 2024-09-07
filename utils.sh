@@ -92,36 +92,6 @@ avr_install () {
 	sudo apt install --yes binutils-avr gcc-avr avr-libc gdb-avr avrdude screen
 }
 
-gcc_toolchain_r_ppa_setup () {
-	codename=$(ubuntu_codename)
-	gcc_toolchain_key_path="/etc/apt/keyrings/ubuntu-toolchain-r-ppa-$codename.gpg"
-	if [[ $(file_exists $gcc_toolchain_key_path) = false ]]
-	then
-		sudo add-apt-repository --yes ppa:ubuntu-toolchain-r/ppa
-	fi
-}
-
-gcc_toolchain_r_test_setup () {
-	codename=$(ubuntu_codename)
-	gcc_toolchain_key_path="/etc/apt/keyrings/ubuntu-toolchain-r-test-$codename.gpg"
-	if [[ $(file_exists $gcc_toolchain_key_path) = false ]]
-	then
-		sudo add-apt-repository --yes ppa:ubuntu-toolchain-r/test
-	fi
-}
-
-gcc_latest_install () {
-	# Grep for lines beginning in gcc and ending in a at least two
-	# digits. We want there to be two digits, because otherwise the
-	# sorting might get strange, since it seems to prioritize sorting
-	# word length over the numeric value at the end of the word. Then
-	# use awk to pick the first word, which is the package name. Then
-	# sort the list and pick the last element.
-	gcc=$(apt-cache search gcc | grep '^gcc-[0-9][0-9][[:space:]]' | awk '{print $1;}' | sort | tail -1)
-	gplusplus=$(apt-cache search g++ | grep '^g++-[0-9][0-9][[:space:]]' | awk '{print $1;}' | sort | tail -1)
-	sudo apt install --yes $gcc $gplusplus
-}
-
 google_chrome_setup () {
 	# Source: https://www.digitalocean.com/community/tutorials/install-chrome-on-linux-mint
 	# apt-key is deprecated. Use gpg instead.
