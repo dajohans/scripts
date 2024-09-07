@@ -1,8 +1,5 @@
 #!/bin/bash
 
-current_dir=$(dirname $0)
-source "$current_dir/utils.sh"
-
 sudo apt update
 
 # Programs for Arduino programming, or avr programming in general.

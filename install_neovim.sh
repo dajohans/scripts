@@ -12,4 +12,3 @@ fi
 
 sudo apt update
 sudo apt install --yes neovim
-
