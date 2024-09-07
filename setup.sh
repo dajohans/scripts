@@ -60,6 +60,7 @@ source "$current_dir/install_chrome.sh"
 # the installation continue
 # source "$current_dir/install_texlive_full.sh"
 source "$current_dir/install_texlive_minimal.sh"
+source "$current_dir/install_rust.sh"
 
 sudo apt update
 
