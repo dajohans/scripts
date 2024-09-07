@@ -48,6 +48,8 @@ then
 	echo "program. Therefore, these directories should be kept even after installation." >> $HOME/manual-installs/NOTES.txt
 fi
 
+source "$current_dir/gnome_terminal_settings.sh"
+
 gcc_toolchain_r_test_setup
 neovim_setup
 llvm_setup
