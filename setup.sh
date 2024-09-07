@@ -53,13 +53,18 @@ source "$current_dir/desktop_font_settings.sh"
 source "$current_dir/install_llvm_tools.sh"
 source "$current_dir/install_gcc_latest.sh"
 source "$current_dir/install_chrome.sh"
+# NOTE: Installation of texlive-full gets stuck at:
+#     Pregenerating ConTeXt MarkIV format. This may take some time...
+# Apparently it's waiting for input, but doesn't say anything about that.
+# Pressing Enter a bunch(more than just once or twice) of times tend to make
+# the installation continue
+# source "$current_dir/install_texlive_full.sh"
+source "$current_dir/install_texlive_minimal.sh"
 
 sudo apt update
 
-texlive_minimal_install
 rust_install
 avr_install
-# texlive_install
 # texlab_install
 # jdtls_install
 # rust_analyzer_install
