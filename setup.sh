@@ -50,6 +50,7 @@ fi
 
 source "$current_dir/gnome_terminal_settings.sh"
 source "$current_dir/desktop_font_settings.sh"
+source "$current_dir/install_neovim.sh"
 source "$current_dir/install_llvm_tools.sh"
 source "$current_dir/install_gcc_latest.sh"
 source "$current_dir/install_chrome.sh"
@@ -132,11 +133,6 @@ fi
 if [[ $(file_exists "$HOME/.bashrc_customization") = false ]]
 then
 	cp .bashrc_customization $HOME/.bashrc_customization
-fi
-
-if [[ $(command_exists nvim) = false ]]
-then
-	./install_neovim.sh
 fi
 
 if [[ $(command_exists emacs) = false ]]
