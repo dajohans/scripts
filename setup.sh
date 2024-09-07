@@ -52,12 +52,10 @@ source "$current_dir/gnome_terminal_settings.sh"
 source "$current_dir/desktop_font_settings.sh"
 source "$current_dir/install_llvm_tools.sh"
 source "$current_dir/install_gcc_latest.sh"
-
-google_chrome_setup
+source "$current_dir/install_chrome.sh"
 
 sudo apt update
 
-sudo apt install --yes google-chrome-stable
 texlive_minimal_install
 rust_install
 avr_install
