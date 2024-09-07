@@ -48,10 +48,10 @@ rust_analyzer_install () {
 	# Rustup appears to install the programs inside
 	#     ~/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/bin/
 	# but doesn't add this to PATH. Then it seems like it creates
-	# wrappers of the binaries in the above directory and put them
 	# inside
 	#     ~/.cargo/bin/
 	# and these wrappers are added to PATH. The strange thing is that
+	# wrappers of the binaries in the above directory and put them
 	# it creates wrappers for all components, even the ones that are
 	# not installed. So there exists a binary rust-analyzer even if it
 	# is not installed. Therefore, the below code checks for
@@ -61,12 +61,6 @@ rust_analyzer_install () {
 	then
 		rustup component add rust-analyzer
 	fi
-}
-
-avr_install () {
-	# Programs for Arduino programming, or avr programming in general.
-	# screen is for viewing serial port output continuously
-	sudo apt install --yes binutils-avr gcc-avr avr-libc gdb-avr avrdude screen
 }
 
 command_exists () {

@@ -61,10 +61,10 @@ source "$current_dir/install_chrome.sh"
 # source "$current_dir/install_texlive_full.sh"
 source "$current_dir/install_texlive_minimal.sh"
 source "$current_dir/install_rust.sh"
+source "$current_dir/install_avr.sh"
 
 sudo apt update
 
-avr_install
 # texlab_install
 # jdtls_install
 # rust_analyzer_install
