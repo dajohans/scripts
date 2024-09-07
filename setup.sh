@@ -2,8 +2,7 @@
 
 # TODO
 #	1. Setup apt mirrors here instead of in gui.
-#	2. Compile and install vim and emacs.
-#	3. Figure out how to do ssh-add without prompt for passphrase
+#	2. Figure out how to do ssh-add without prompt for passphrase
 
 current_dir=$(dirname $0)
 source "$current_dir/utils.sh"
