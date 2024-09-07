@@ -49,6 +49,7 @@ then
 fi
 
 source "$current_dir/gnome_terminal_settings.sh"
+source "$current_dir/desktop_font_settings.sh"
 
 gcc_toolchain_r_test_setup
 neovim_setup
