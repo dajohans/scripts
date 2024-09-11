@@ -8,3 +8,27 @@
 gsettings set \
 	org.cinnamon.settings-daemon.plugins.power \
 	critical-battery-action nothing
+gsettings set \
+	org.cinnamon.settings-daemon.plugins.power \
+	percentage-action 0
+gsettings set \
+	org.cinnamon.settings-daemon.plugins.power \
+	time-action 0
+gsettings set \
+	org.cinnamon.settings-daemon.plugins.power \
+	sleep-inactive-ac-type nothing
+gsettings set \
+	org.cinnamon.settings-daemon.plugins.power \
+	sleep-inactive-battery-type nothing
+gsettings set \
+	org.cinnamon.settings-daemon.plugins.power \
+	sleep-inactive-ac-timeout 0
+gsettings set \
+	org.cinnamon.settings-daemon.plugins.power \
+	sleep-inactive-battery-timeout 0
+gsettings set \
+	org.cinnamon.settings-daemon.plugins.power \
+	sleep-display-ac 0
+gsettings set \
+	org.cinnamon.settings-daemon.plugins.power \
+	sleep-display-battery 0
