@@ -47,6 +47,7 @@ then
 	echo "program. Therefore, these directories should be kept even after installation." >> $HOME/manual-installs/NOTES.txt
 fi
 
+source "$current_dir/battery_settings.sh"
 source "$current_dir/gnome_terminal_settings.sh"
 source "$current_dir/desktop_font_settings.sh"
 source "$current_dir/install_neovim.sh"
